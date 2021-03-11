@@ -1,0 +1,29 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.Master.cs" Inherits="WebApplication1.Admin.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+     <link rel="stylesheet" href="Astyle.css">
+</head>
+
+
+    <form id="home" runat="server">
+        <div class="head">
+            <div class="header">
+                <nav>
+                    <p>Rexine Gallery</p>
+                    <ul id="nav">
+                        <li><a class="rexblack" href="ManageCustomer.aspx">CUSTOMERS</a></li>
+                        <li><a class="rexblack" href="#">ORDERS</a></li></ul>
+                </nav>
+            </div>
+        </div>
+        <div class="loginstatus">
+            <a href="login.aspx" runat="server">LogOut</a>
+        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+ </form>
+</html>

@@ -1,0 +1,83 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Chonburi');
+@import url('https://fonts.googleapis.com/css?family=Arvo:400,400i,700,700i');
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*body {
+    background: radial-gradient(circle,#EEFBFB, #add8e6);
+   
+}*/
+
+.head {
+    display: flex;
+    flex-wrap: wrap;
+    background: #12232E;
+    width: auto;
+    height: 70px;
+}
+
+.header {
+   flex-basis:90%;
+    margin-left:0px;
+    margin-right:0px;
+    padding: 8px 0px 10px 45px;
+    
+}
+.loginstatus {
+    margin-top:20px;
+    text-decoration-line: none;
+    font-family: 'Arvo', serif;
+    font-size: 20px;
+    color: #3AAFA9;
+    margin-left:800px;
+}
+
+    .header p {
+        display: inline;
+        color:white;
+        font-family:'Berkshire Swash';
+        font-weight:bolder;
+        font-size: 40px;
+        float: left;
+        margin-top: auto;
+        
+        margin-bottom: auto;
+    }
+
+.header nav ul li {
+    display: inline-block;
+    list-style-type: none;
+    float: left;
+    margin-left: 20px;
+}
+
+.header nav ul {
+    display: inline-block;
+    padding: 0px;
+    float: left;
+}
+
+.header nav ul li a {
+        color: #EEFBFB;
+        text-decoration: none;
+    }
+
+#nav {
+    font-family: 'Arvo', serif;
+    align-content: flex-end;
+    margin-top: 15px;
+    font-size: 20px;
+    
+}
+
+.rexblack:hover {
+    background-color: #3AAFA9;
+    padding: 30px 20px 23px 20px; /*top right bottom left*/
+}
+
+
+
