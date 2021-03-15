@@ -10,66 +10,74 @@ using System.Web.UI.WebControls;
 namespace WebApplication1
 {
     public partial class BeanBag1 : System.Web.UI.Page
-    {   
-        protected bool isNotEmpty(String value) {
+    {
+        protected bool isNotEmpty(String value)
+        {
             return value != null && value != "";
         }
 
-        String BbName = ""; 
-        String BbType = ""; 
-        String BbRex = ""; 
+        String BbName = "Alpha Bean";
+        String BbType = "";
+        String BbRex = "";
         String BbPrice = "";
         String BbBeans = "";
         String BbSize = "";
-
-        protected String constructQuery() {
-            var query = "SELECT * FROM BEANBAG WHERE "
-            if (isNotEmpty(Bbname)) {
+        SqlConnection con;
+        
+        protected String constructQuery()
+        {
+            var query = "SELECT * FROM BEANBAG WHERE ";
+            if (isNotEmpty(BbName))
+            {
                 query = query + "BbName = '" + BbName + "'";
             }
-            if (isNotEmpty(BbType)) {
+            if (isNotEmpty(BbType))
+            {
                 query = query + "BbType = '" + BbType + "'";
             }
-            if (isNotEmpty(BbRex)) {
+            if (isNotEmpty(BbRex))
+            {
                 query = query + "BbRex = '" + BbRex + "'";
             }
-            if (isNotEmpty(BbPrice)) {
+            if (isNotEmpty(BbPrice))
+            {
                 query = query + "BbPrice = '" + BbPrice + "'";
             }
-            if (isNotEmpty(BbBeans)) {
+            if (isNotEmpty(BbBeans))
+            {
                 query = query + "BbBeans = '" + BbBeans + "'";
             }
-            if (isNotEmpty(BbSize)) {
+            if (isNotEmpty(BbSize))
+            {
                 query = query + "BbSize = '" + BbSize + "'";
             }
             return query;
         }
 
-        protected void updateValues() {
-            BbBeans = Beans.SelectedItem.Value.ToString();
+        protected void updateValues()
+        {
+            
+            BbBeans = BEANS.SelectedItem.Text;
             BbSize = SIZE.SelectedValue;
         }
 
-        protected void createRequest() {
+        protected void createRequest(object sender, EventArgs e)
+        {
+            con.Open();
+            Errorr.Text = "Executed";
             updateValues();
-            query = constructQuery();
+            var query = constructQuery();
             SqlCommand command = new SqlCommand(query, con);
             SqlDataReader reader = command.ExecuteReader();
-            try
-            {
-                reader.Read();
-            }
-            catch (System.Exception)
-            {
-                return null;
-            }
-            Bbname.Text = reader["BbName"].ToString();
-            Bbprice.Text = reader["BbPrice"].ToString();
-            BbType.Text = reader["BbType"].ToString();
-            BbRex.Text = reader["BbRex"].ToString();
+            reader.Read();
+            Bbnamee.Text = BbName;
+            Bbpricee.Text = reader["BbPrice"].ToString();
+            Bbrexx.Text = reader["BbRex"].ToString();
+            Bbtypee.Text = reader["BbType"].ToString();
+            con.Close();
         }
 
-        SqlConnection con;
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -82,8 +90,10 @@ namespace WebApplication1
             SqlCommand com = new SqlCommand(str, con);
             SqlDataReader reader = com.ExecuteReader();
             reader.Read();
-            Bbname.Text = reader["BbName"].ToString();
-            Bbprice.Text = reader["BbPrice"].ToString();
+            Bbnamee.Text = reader["BbName"].ToString();
+            Bbpricee.Text = reader["BbPrice"].ToString();
+            //Errorr.Text = "Executed";
+            con.Close();
         }
 
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)

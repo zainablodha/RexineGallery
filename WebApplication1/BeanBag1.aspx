@@ -1,9 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BeanBag1.aspx.cs"
-    Inherits="WebApplication1.BeanBag1" %>
-
-    <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-        <body>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BeanBag1.aspx.cs" Inherits="WebApplication1.BeanBag1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
+     
             <div class="container">
                 <div class="row">
                     <div class="col2">
@@ -11,16 +9,17 @@
                     </div>
                     <div class="col2">
                         <h1>
-                            <asp:Label ID="Bbname" runat="server"></asp:Label>
+                            <asp:Label ID="Errorr" runat="server" ></asp:Label>
+                            <asp:Label ID="Bbnamee" runat="server"></asp:Label>
                         </h1>
                         <div class="price">
-                            <asp:Label ID="Bbprice" runat="server">2300</asp:Label>
+                            <asp:Label ID="Bbpricee" runat="server">2300</asp:Label>
                         </div>
                         <div class="type">
-                            <asp:Label ID="BbType" runat="server">2300</asp:Label>
+                            <asp:Label ID="Bbtypee" runat="server" ></asp:Label>
                         </div>
                         <div class="rex">
-                            <asp:Label ID="BbRex" runat="server">2300</asp:Label>
+                            <asp:Label ID="Bbrexx" runat="server" ></asp:Label>
                         </div>
                         <!-- <div>
                         <asp:DetailsView class="details" ID="DetailsView1" runat="server" Height="50px" Width="242px" AutoGenerateRows="False" DataSourceID="SqlDataSource1" GridLines="None">
@@ -34,12 +33,12 @@
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:db %>" SelectCommand="SELECT [BbName], [BbType], [BbRex], [BbPrice] FROM [BeanBag]"></asp:SqlDataSource>
                     </div> -->
                         <div class="beans">
-                            <asp:RadioButtonList ID="Beans" runat="server" RepeatLayout="Flow" onclick="createRequest">
-                                <asp:ListItem Value="With Beans">With Beans</asp:ListItem>
-                                <asp:ListItem Value="Without Beans">Without Beans</asp:ListItem>
+                            <asp:RadioButtonList ID="BEANS" runat="server" RepeatLayout="Flow" onchange="createRequest" AutoPostBack="True">
+                                <asp:ListItem Value="With Beans" Text="With Beans"></asp:ListItem>
+                                <asp:ListItem Value="Without Beans" Text="Without Beans"></asp:ListItem>
                             </asp:RadioButtonList>
                             <br />
-                            <asp:DropDownList ID="SIZE" runat="server" onclick="createRequest">
+                            <asp:DropDownList ID="SIZE" runat="server" onselectedindexchanged="createRequest" AutoPostBack="True">
                                 <asp:ListItem>L</asp:ListItem>
                                 <asp:ListItem>XL</asp:ListItem>
                                 <asp:ListItem>XXL</asp:ListItem>
@@ -71,7 +70,7 @@
                 </div>
 
             </div>
-        </body>
+        
         <style>
             .row {
                 display: flex;
@@ -212,4 +211,4 @@
                 width: 230px;
             }
         </style>
-    </asp:Content>
+</asp:Content>

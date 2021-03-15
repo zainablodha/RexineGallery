@@ -15,22 +15,49 @@ namespace WebApplication1
     {
 
         /// <summary>
-        /// Bbname control.
+        /// Errorr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Bbname;
+        protected global::System.Web.UI.WebControls.Label Errorr;
 
         /// <summary>
-        /// Bbprice control.
+        /// Bbnamee control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Bbprice;
+        protected global::System.Web.UI.WebControls.Label Bbnamee;
+
+        /// <summary>
+        /// Bbpricee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Bbpricee;
+
+        /// <summary>
+        /// Bbtypee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Bbtypee;
+
+        /// <summary>
+        /// Bbrexx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Bbrexx;
 
         /// <summary>
         /// DetailsView1 control.
@@ -51,22 +78,13 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
         /// <summary>
-        /// WithBeans control.
+        /// BEANS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton WithBeans;
-
-        /// <summary>
-        /// WithoutBeans control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton WithoutBeans;
+        protected global::System.Web.UI.WebControls.RadioButtonList BEANS;
 
         /// <summary>
         /// SIZE control.
