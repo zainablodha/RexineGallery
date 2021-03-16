@@ -34,7 +34,7 @@
                     </div> -->
                         <div class="beans">
                             <asp:RadioButtonList ID="BEANS" runat="server" RepeatLayout="Flow" onchange="createRequest" AutoPostBack="True">
-                                <asp:ListItem Value="With Beans" Text="With Beans"></asp:ListItem>
+                                <asp:ListItem Value="With Beans" Text="With Beans" Checked="True"></asp:ListItem>
                                 <asp:ListItem Value="Without Beans" Text="Without Beans"></asp:ListItem>
                             </asp:RadioButtonList>
                             <br />
@@ -62,7 +62,8 @@
                         </div>
                         <div class="quantity">
                             <h6>QUANTITY</h6>
-                            <asp:TextBox ID="q" class="" runat="server" TextMode="Number" MaxLength="2"></asp:TextBox>
+                            <asp:TextBox ID="q" class="" runat="server"  AutoPostBack="True" OnTextChanged="q_TextChanged" TextMode="number" ></asp:TextBox>
+                            <asp:RangeValidator ID="qq" runat="server" ControlToValidate="q" ErrorMessage="RangeValidator" MaximumValue="11" MinimumValue="1" Display="Dynamic" ></asp:RangeValidator>
                         </div>
                         <br />
                         <asp:Button ID="Button1" class="order" runat="server" ForeColor="white" Text="ORDER" />

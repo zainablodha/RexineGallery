@@ -17,88 +17,89 @@ namespace WebApplication1
         }
 
         String BbName = "Alpha Bean";
-        String BbType = "";
-        String BbRex = "";
-        String BbPrice = "";
+        
+        String BbPrice ;
         String BbBeans = "";
         String BbSize = "";
+        String Quantity = "";
         SqlConnection con;
-        
-        protected String constructQuery()
-        {
-            var query = "SELECT * FROM BEANBAG WHERE ";
-            if (isNotEmpty(BbName))
-            {
-                query = query + "BbName = '" + BbName + "'";
-            }
-            if (isNotEmpty(BbType))
-            {
-                query = query + "BbType = '" + BbType + "'";
-            }
-            if (isNotEmpty(BbRex))
-            {
-                query = query + "BbRex = '" + BbRex + "'";
-            }
-            if (isNotEmpty(BbPrice))
-            {
-                query = query + "BbPrice = '" + BbPrice + "'";
-            }
-            if (isNotEmpty(BbBeans))
-            {
-                query = query + "BbBeans = '" + BbBeans + "'";
-            }
-            if (isNotEmpty(BbSize))
-            {
-                query = query + "BbSize = '" + BbSize + "'";
-            }
-            return query;
-        }
-
-        protected void updateValues()
-        {
-            
-            BbBeans = BEANS.SelectedItem.Text;
-            BbSize = SIZE.SelectedValue;
-        }
+        SqlConnection conn;
+        int BbP;
+        int quantityy;
 
         protected void createRequest(object sender, EventArgs e)
         {
-            con.Open();
-            Errorr.Text = "Executed";
-            updateValues();
-            var query = constructQuery();
-            SqlCommand command = new SqlCommand(query, con);
-            SqlDataReader reader = command.ExecuteReader();
+            conn = new SqlConnection(ConfigurationManager.ConnectionStrings["db"].ConnectionString);
+            conn.Open();
+            BbBeans = BEANS.SelectedItem.Value.ToString();
+            BbSize = SIZE.SelectedValue;
+            SqlCommand comm = new SqlCommand("select * from Beanbag where BbSize=@BbS and BbBeans=@BbB", conn);
+            comm.Parameters.AddWithValue("@BbS", BbSize);
+            comm.Parameters.AddWithValue("@BbB", BbBeans);
+            SqlDataReader reader = comm.ExecuteReader();
             reader.Read();
             Bbnamee.Text = BbName;
             Bbpricee.Text = reader["BbPrice"].ToString();
             Bbrexx.Text = reader["BbRex"].ToString();
             Bbtypee.Text = reader["BbType"].ToString();
-            con.Close();
+            reader.Close();
+            conn.Close();
         }
 
         
 
         protected void Page_Load(object sender, EventArgs e)
+
         {
+            if (!IsPostBack)
+
+            {
+                BEANS.SelectedIndex = 0;
+            }
+            
             con = new SqlConnection(ConfigurationManager.ConnectionStrings["db"].ConnectionString);
             con.Open();
 
-            /// Get default values
+            if (!IsPostBack)
+
+            {
+
+                SIZE.SelectedIndex = 0;
+
+            }
+            q.Text = "1";
+            Quantity = q.Text.ToString();
+            BbBeans= BEANS.SelectedItem.Value.ToString();
             BbSize = SIZE.SelectedValue;
-            string str = "select * from BeanBag where  BbSize = '" + BbSize + "'";
-            SqlCommand com = new SqlCommand(str, con);
+            //string str = "select * from BeanBag where  BbSize = '" + BbSize + "'" ;
+            SqlCommand com = new SqlCommand("select * from Beanbag where BbSize=@BbS and BbBeans=@BbB", con);
+            com.Parameters.AddWithValue("@BbS", BbSize);
+            com.Parameters.AddWithValue("@BbB", BbBeans);
             SqlDataReader reader = com.ExecuteReader();
+
             reader.Read();
             Bbnamee.Text = reader["BbName"].ToString();
             Bbpricee.Text = reader["BbPrice"].ToString();
-            //Errorr.Text = "Executed";
+            BbPrice = reader["BbPrice"].ToString();
+            reader.Close();
             con.Close();
+           
         }
 
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("BeanBag16.aspx");
+        }
+
+        protected void q_TextChanged(object sender, EventArgs e)
+        {
+            /*Quantity = q.Text.ToString();
+            Int32.TryParse(BbPrice, out BbP);
+            Int32.TryParse(Quantity, out quantityy);
+            //BbP = int.Parse(BbPrice);
+            //quantityy = int.Parse(Quantity);
+            BbPrice = (BbP * quantityy).ToString();
+            Bbpricee.Text = BbPrice;*/
         }
     }
 }
