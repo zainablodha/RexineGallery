@@ -109,7 +109,10 @@
     <Content Include="Admin\login.aspx" />
     <Content Include="Admin\ManageCustomer.aspx" />
     <Content Include="Avio.aspx" />
-    <Content Include="BeanBag1.aspx" />
+    <Content Include="BeanBag 1\BeanBag1.aspx" />
+    <Content Include="BeanBag 1\BeanBag17.aspx" />
+    <Content Include="BeanBag 1\BeanBag18.aspx" />
+    <Content Include="BeanBag 1\BeanBag19.aspx" />
     <Content Include="BeanBagH.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -128,7 +131,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="BeanBag16.aspx" />
+    <Content Include="BeanBag 1\BeanBag16.aspx" />
     <Content Include="Admin\Admin.Master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Home.aspx" />
@@ -320,12 +323,33 @@
     <Compile Include="Avio.aspx.designer.cs">
       <DependentUpon>Avio.aspx</DependentUpon>
     </Compile>
-    <Compile Include="BeanBag1.aspx.cs">
+    <Compile Include="BeanBag 1\BeanBag1.aspx.cs">
       <DependentUpon>BeanBag1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BeanBag1.aspx.designer.cs">
+    <Compile Include="BeanBag 1\BeanBag1.aspx.designer.cs">
       <DependentUpon>BeanBag1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BeanBag 1\BeanBag17.aspx.cs">
+      <DependentUpon>BeanBag17.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BeanBag 1\BeanBag17.aspx.designer.cs">
+      <DependentUpon>BeanBag17.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BeanBag 1\BeanBag18.aspx.cs">
+      <DependentUpon>BeanBag18.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BeanBag 1\BeanBag18.aspx.designer.cs">
+      <DependentUpon>BeanBag18.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BeanBag 1\BeanBag19.aspx.cs">
+      <DependentUpon>BeanBag19.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BeanBag 1\BeanBag19.aspx.designer.cs">
+      <DependentUpon>BeanBag19.aspx</DependentUpon>
     </Compile>
     <Compile Include="BeanBagH.aspx.cs">
       <DependentUpon>BeanBagH.aspx</DependentUpon>
@@ -436,11 +460,11 @@
     <Compile Include="Volcano.aspx.designer.cs">
       <DependentUpon>Volcano.aspx</DependentUpon>
     </Compile>
-    <Compile Include="BeanBag16.aspx.cs">
+    <Compile Include="BeanBag 1\BeanBag16.aspx.cs">
       <DependentUpon>BeanBag16.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BeanBag16.aspx.designer.cs">
+    <Compile Include="BeanBag 1\BeanBag16.aspx.designer.cs">
       <DependentUpon>BeanBag16.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
