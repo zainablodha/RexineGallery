@@ -17,13 +17,13 @@ namespace WebApplication1
         protected void Button1_Click(object sender, EventArgs e)
         {
             
-                Response.Redirect("BeanBag 1/BeanBag1.aspx");
+                Response.Redirect("BeanBag1.aspx");
             
         }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            Response.Redirect("BeanBag 2/BeanBag2.aspx");
+            Response.Redirect("BeanBag2.aspx");
         }
     }
 }
