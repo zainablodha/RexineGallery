@@ -113,6 +113,7 @@
     <Content Include="BeanBag 1\BeanBag17.aspx" />
     <Content Include="BeanBag 1\BeanBag18.aspx" />
     <Content Include="BeanBag 1\BeanBag19.aspx" />
+    <Content Include="BeanBag 2\BeanBag2.aspx" />
     <Content Include="BeanBagH.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -350,6 +351,13 @@
     </Compile>
     <Compile Include="BeanBag 1\BeanBag19.aspx.designer.cs">
       <DependentUpon>BeanBag19.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BeanBag 2\BeanBag2.aspx.cs">
+      <DependentUpon>BeanBag2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BeanBag 2\BeanBag2.aspx.designer.cs">
+      <DependentUpon>BeanBag2.aspx</DependentUpon>
     </Compile>
     <Compile Include="BeanBagH.aspx.cs">
       <DependentUpon>BeanBagH.aspx</DependentUpon>

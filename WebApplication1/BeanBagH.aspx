@@ -9,7 +9,7 @@
                     <img class="img4" src="Images/BeanBags/beanbag8%2010.jpg" /> <br />
                 </div>
                 <asp:Button ID="Button1" Class="btn1" runat="server" Text="View" ForeColor="White" OnClick="Button1_Click"/>&nbsp;&nbsp;
-                <asp:Button ID="Button2" Class="btn1" runat="server" Text="View" ForeColor="White" />&nbsp;&nbsp;
+                <asp:Button ID="Button2" Class="btn1" runat="server" Text="View" ForeColor="White" OnClick="Button2_Click" />&nbsp;&nbsp;
                 <asp:Button ID="Button3" Class="btn1" runat="server" Text="View" ForeColor="White"/>&nbsp;&nbsp;
                 <asp:Button ID="Button4" Class="btn1" runat="server" Text="View" ForeColor="White"/><br />
         

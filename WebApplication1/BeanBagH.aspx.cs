@@ -20,5 +20,10 @@ namespace WebApplication1
                 Response.Redirect("BeanBag 1/BeanBag1.aspx");
             
         }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("BeanBag 2/BeanBag2.aspx");
+        }
     }
 }
