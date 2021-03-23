@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -35,9 +36,9 @@ namespace WebApplication1
                 var name = nComm.ExecuteScalar().ToString();
 
                 if (password == TextPass.Text)
+
                 {
-                    Session["New"] = "  " + name + "<br/>";
-                    System.Web.Security.FormsAuthentication.SetAuthCookie(name, true);
+                    Session["CustEmail"] = TextEmail.Text;
                     Response.Redirect("Home.aspx");
                 }
                 else
@@ -50,6 +51,7 @@ namespace WebApplication1
             {
                 UserIncorrect.Text="Username is incorrect!";
             }
+            this.Button1.Click += new System.EventHandler(this.Button1_Click);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="WebApplication1.Login" %>
+﻿
+<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="WebApplication1.Login" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="login" align="center" >
         <br />
@@ -7,11 +8,11 @@
         <br />
         <asp:Label ID="UserIncorrect" runat="server" ForeColor="#3AAFA9"></asp:Label>
         <asp:TextBox ID="TextEmail" placeholder="  Enter Email" Height="32px" Width="250px" TextMode="Email" runat="server" BackColor="#D3D3D3" style="border-radius:20px; margin-left:6px;"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextEmail" ErrorMessage="Please enter Email." ForeColor="#3AAFA9" style="margin-left:80px;"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextEmail" ErrorMessage="*" ForeColor="#3AAFA9" style="margin-left:80px;"></asp:RequiredFieldValidator>
         <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="TextEmail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ErrorMessage="Invalid Email Id" ForeColor="#3AAFA9"></asp:RegularExpressionValidator>
         <br>
         <asp:TextBox ID="TextPass" placeholder="  Enter Password" Height="32px" Width="250px" runat="server" TextMode="Password" BackColor="#D3D3D3" style="border-radius:20px; margin-left:6px;"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextPass" ErrorMessage="Please enter Password." ForeColor="#3AAFA9" ></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextPass" ErrorMessage="*" ForeColor="#3AAFA9" ></asp:RequiredFieldValidator>
         <br />
         <asp:Label ID="PassIncorrect" runat="server" ForeColor="#3AAFA9"></asp:Label>
         <br />

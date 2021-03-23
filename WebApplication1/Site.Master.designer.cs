@@ -24,13 +24,13 @@ namespace WebApplication1
         protected global::System.Web.UI.HtmlControls.HtmlForm home;
 
         /// <summary>
-        /// LoginStatus1 control.
+        /// instatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginStatus LoginStatus1;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor instatus;
 
         /// <summary>
         /// ContentPlaceHolder1 control.

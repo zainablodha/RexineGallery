@@ -12,10 +12,16 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /* if (!Request.IsAuthenticated)
+            if (Session["CustEmail"] == null)
             {
-                Response.Redirect("Login.aspx");
-            }*/
+              
+                instatus.HRef = "Login.aspx";
+            }
+            else
+            {
+                instatus.InnerText = "Logout";
+                instatus.HRef = "logout.aspx";
+            }
         }
     }
 }

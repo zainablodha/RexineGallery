@@ -17,14 +17,19 @@ namespace WebApplication1
                 Session.Abandon();
                 Session.Remove("TextEmail");
                 Session.Remove("TextPass");
-                Response.Redirect("~/Home.aspx");
+                if (Session["CustEmail"] == null)
+                {
+                    Response.Redirect("Rexines.aspx");
+                }
+
             }
+            
         }
 
-        protected void LoginStatus1_Logout(object sender, LoginCancelEventArgs e)
+        /*protected void LoginStatus1_Logout(object sender, LoginCancelEventArgs e)
         {
             FormsAuthentication.SignOut();
             Response.Redirect("Login.aspx");
-        }
+        }*/
     }
 }
