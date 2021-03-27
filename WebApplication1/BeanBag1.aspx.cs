@@ -33,6 +33,7 @@ namespace WebApplication1
         String CId;
         String BId;
         String Amtt;
+        String Status;
 
         protected void createRequest(object sender, EventArgs e)
         {
@@ -95,6 +96,7 @@ namespace WebApplication1
             Bbtypee.Text = reader["BbType"].ToString();
             Session["price"] = Bbpricee.Text;
             Session["Img"] = img.ImageUrl;
+            Session["Bid"] = BId;
             
             reader.Close();
             con.Close();
@@ -123,7 +125,7 @@ namespace WebApplication1
             
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Email = Session["CustEmail"].ToString();
+           
             
             if (Session["CustEmail"] == null) { 
                
@@ -131,24 +133,28 @@ namespace WebApplication1
             }
             else
             {
-               ccon = new SqlConnection(ConfigurationManager.ConnectionStrings["db"].ConnectionString);
+                Email = Session["CustEmail"].ToString();
+                ccon = new SqlConnection(ConfigurationManager.ConnectionStrings["db"].ConnectionString);
                 ccon.Open();
                 String cmdd = "select CustId from Customer where CustEmail= '" + Email + "'";
                 SqlCommand com = new SqlCommand(cmdd, ccon);
                 SqlDataReader reader = com.ExecuteReader();
                 reader.Read();
                 CId= reader["CustId"].ToString();
+                Session["Cid"] = CId;
                 reader.Close();
                 ccon.Close();
                 Amtt = Bbpricee.Text;
                 Convert.ToInt32(CId);
                 Convert.ToInt32(BId);
-                String cmmd = "insert into Orderr values(@CustID, @BbID, @Amt)";
+                String cmmd = "insert into Orderr values(@CustID, @BbID, @Amt, @Stat)";
+                Status = "Not Placed";
                 ccon.Open();
                 SqlCommand comm = new SqlCommand(cmmd, ccon);
                 comm.Parameters.AddWithValue("@CustID", CId);
                 comm.Parameters.AddWithValue("@BbID", BId);
                 comm.Parameters.AddWithValue("@Amt", Amtt);
+                comm.Parameters.AddWithValue("@Stat", Status);
                 comm.ExecuteNonQuery();
                 ccon.Close();
                 Response.Redirect("order.aspx");

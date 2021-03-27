@@ -8,7 +8,7 @@
             <br />
             <br />
             <div class="imgg">
-            <asp:ImageButton id="Ccard" class="img" runat="server" Height="107px" ImageUrl="~/Credit Card.png" Width="139px" OnClick="Ccard_Click"></asp:ImageButton>&nbsp;
+            <asp:ImageButton id="Ccard" class="img" runat="server" Height="107px" ImageUrl="~/Credit Card.png" Width="139px" ></asp:ImageButton>&nbsp;
             <asp:ImageButton id="Cd" class="img" runat="server" Width="139px" Height="107px" ImageUrl="~/CODD.png" OnClick="Cd_Click"/></div>
             <br />
             <div class="card">
@@ -24,7 +24,8 @@
             <asp:TextBox ID="TextBox5" runat="server" Height="29px" Width="76px" placeholder=" CVC"></asp:TextBox>&nbsp;
             <asp:TextBox ID="TextBox6" runat="server" Height="29px" Width="76px" placeholder=" Zip Code"></asp:TextBox></div>
             <br /></div>
-            <asp:Button class="Payy" ID="Button1" runat="server" Text=" PAY" BackColor="#3DED97" ForeColor="White" Font-Size="Large" Height="30px" Width="68px" />
+            <asp:Button ID="Cancel" runat="server" Text="Cancel" BackColor="#3DED97" ForeColor="White" Font-Size="Large" Height="30px" Width="68px" OnClick="Cancel_Click"/>
+            <asp:Button class="Payy" ID="Pay" runat="server" Text=" PAY" BackColor="#3DED97" ForeColor="White" Font-Size="Large" Height="30px" Width="68px" OnClick="Pay_Click" />
             <br />
             <br />
 
@@ -58,6 +59,10 @@
         }
         .img{
             border:2px solid black;
+            transition: transform 0.5s;
+        }
+        .img:hover{
+            transform:translateX(-5px);
         }
         .card h7{
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
