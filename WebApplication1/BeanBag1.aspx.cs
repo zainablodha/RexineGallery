@@ -32,6 +32,7 @@ namespace WebApplication1
         string Email;
         String CId;
         String BId;
+        String Amtt;
 
         protected void createRequest(object sender, EventArgs e)
         {
@@ -86,9 +87,9 @@ namespace WebApplication1
             com.Parameters.AddWithValue("@BbB", BbBeans);
             com.Parameters.AddWithValue("@BbName", BbName);
             SqlDataReader reader = com.ExecuteReader();
-
             reader.Read();
             Bbnamee.Text = BbName;
+            BId = reader["BbID"].ToString();
             Bbpricee.Text = reader["BbPrice"].ToString();
             Bbrexx.Text = reader["BbRex"].ToString();
             Bbtypee.Text = reader["BbType"].ToString();
@@ -130,7 +131,7 @@ namespace WebApplication1
             }
             else
             {
-               /* ccon = new SqlConnection(ConfigurationManager.ConnectionStrings["db"].ConnectionString);
+               ccon = new SqlConnection(ConfigurationManager.ConnectionStrings["db"].ConnectionString);
                 ccon.Open();
                 String cmdd = "select CustId from Customer where CustEmail= '" + Email + "'";
                 SqlCommand com = new SqlCommand(cmdd, ccon);
@@ -139,17 +140,17 @@ namespace WebApplication1
                 CId= reader["CustId"].ToString();
                 reader.Close();
                 ccon.Close();
-                SqlCommand cmd = new SqlCommand("select BbID from Beanbag where BbSize=@BbS and BbBeans=@BbB and BbName=@BbName", con);
-                com.Parameters.AddWithValue("@BbS", BbSize);
-                com.Parameters.AddWithValue("@BbB", BbBeans);
-                com.Parameters.AddWithValue("@BbName", BbName);
+                Amtt = Bbpricee.Text;
+                Convert.ToInt32(CId);
+                Convert.ToInt32(BId);
+                String cmmd = "insert into Orderr values(@CustID, @BbID, @Amt)";
                 ccon.Open();
-                SqlDataReader readerr = cmd.ExecuteReader();
-                readerr.Read();
-                BId= reader["BbID"].ToString();
-                readerr.Close();
-                //String cmmd = "insert into Orderr values(@)";*/
-
+                SqlCommand comm = new SqlCommand(cmmd, ccon);
+                comm.Parameters.AddWithValue("@CustID", CId);
+                comm.Parameters.AddWithValue("@BbID", BId);
+                comm.Parameters.AddWithValue("@Amt", Amtt);
+                comm.ExecuteNonQuery();
+                ccon.Close();
                 Response.Redirect("order.aspx");
 
             }
