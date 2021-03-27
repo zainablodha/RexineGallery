@@ -1,0 +1,26 @@
+if (temp == 1)
+            {
+                con.Open();
+                string checkPassQuery = "select CustPass from Customer where CustEmail ='" + TextEmail.Text + "'";
+                SqlCommand passwordComm = new SqlCommand(checkPassQuery, con);
+                string password = passwordComm.ExecuteScalar().ToString().Replace(" ", "");
+                string checkNameQuery = "select CustName from Customer where CustEmail ='" + TextEmail.Text + "'";
+                SqlCommand nComm = new SqlCommand(checkNameQuery, con);
+                var name = nComm.ExecuteScalar().ToString();
+
+                if (password == TextPass.Text)
+                {
+                        
+                }
+                else
+                {
+                    PassIncorrect.Text="Password is incorrect!";
+                }
+
+            }
+            else
+            {
+                UserIncorrect.Text="Username is incorrect!";
+            }
+            this.Button1.Click += new System.EventHandler(this.Button1_Click);
+        }

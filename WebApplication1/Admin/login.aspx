@@ -21,7 +21,8 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
         body {
-            background-color:aliceblue;
+           background: radial-gradient(circle, #EEFBFB, #add8e6);
+            background-size: cover;
             
         }
 

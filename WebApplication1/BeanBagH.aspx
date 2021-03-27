@@ -18,6 +18,10 @@
   </div>
         </body>
     <style> 
+        body{
+             background: radial-gradient(circle, #EEFBFB, #add8e6);
+            background-size: cover;
+        }
      img{
          margin-left:58px;
          margin-top:50px;
@@ -47,6 +51,7 @@
             margin-bottom:100px;
             border-color:black;
             border-style:groove;
+            background-color:aliceblue;
      }
         .btn1 {
             margin-left: 58px;

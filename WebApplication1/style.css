@@ -27,13 +27,13 @@
     padding: 8px 0px 10px 45px;
     
 }
-.loginstatus {
-    margin-top:20px;
+#auth_view {
+    margin-top: 20px;
     text-decoration-line: none;
     font-family: 'Arvo', serif;
     font-size: 20px;
     color: #3AAFA9;
-    margin-left:800px;
+    margin-left: 800px;
 }
 
     .header p {

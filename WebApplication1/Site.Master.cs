@@ -20,7 +20,8 @@ namespace WebApplication1
             else
             {
                 instatus.InnerText = "Logout";
-                instatus.HRef = "logout.aspx";
+                instatus.HRef = "Rexines.aspx";
+                
             }
         }
     }

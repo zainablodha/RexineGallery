@@ -12,16 +12,16 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["CustEmail"] == null)
+            {
+                Response.Redirect("Rexines.aspx");
+            }
             if (!Page.IsPostBack)
             {
                 Session.Abandon();
                 Session.Remove("TextEmail");
                 Session.Remove("TextPass");
-                if (Session["CustEmail"] == null)
-                {
-                    Response.Redirect("Rexines.aspx");
-                }
-
+                
             }
             
         }

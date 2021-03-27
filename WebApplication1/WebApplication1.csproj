@@ -119,12 +119,16 @@
     <Content Include="BeanBag23.aspx" />
     <Content Include="BeanBag24.aspx" />
     <Content Include="BeanBagH.aspx" />
+    <Content Include="Cod.aspx" />
+    <Content Include="COD.png" />
+    <Content Include="CODD.png" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Credit Card.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -398,6 +402,13 @@
     </Compile>
     <Compile Include="BeanBagH.aspx.designer.cs">
       <DependentUpon>BeanBagH.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cod.aspx.cs">
+      <DependentUpon>Cod.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cod.aspx.designer.cs">
+      <DependentUpon>Cod.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>

@@ -34,6 +34,10 @@
         </asp:SqlDataSource>
     </div>
     <style>
+        body{
+            background: radial-gradient(circle, #EEFBFB, #add8e6);
+            background-size: cover;
+        }
         .gv{
             margin-top:100px;
         }

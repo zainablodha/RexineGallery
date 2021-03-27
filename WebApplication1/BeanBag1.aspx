@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col2">
-                <img class="bb1" src="../Images/BeanBags/beanbag2.jpg" />
+                <asp:Image id="img" runat="server" ImageUrl="~/Images/BeanBags/beanbag2.jpg"></asp:Image>
             </div>
             <div class="col2">
                 <h1>
