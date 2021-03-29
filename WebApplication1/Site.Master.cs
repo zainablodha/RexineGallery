@@ -23,6 +23,11 @@ namespace WebApplication1
                 instatus.HRef = "logout.aspx";
                 
             }
+
+        }
+        protected void instatus_click(object sender, EventArgs e)
+        {
+
         }
     }
 }

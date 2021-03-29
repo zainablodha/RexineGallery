@@ -19,8 +19,9 @@
             <asp:Label id="addr" runat="server" Text="Label"></asp:Label><br />
             <asp:Label id="estdlr" runat="server" Text="This product will be estimately delivered within 3 working days of confirmation."></asp:Label>
             <br />
-            </div>
-            <asp:Button class="Payy" ID="Button1" runat="server" Text="CONFIRM" BackColor="#3DED97" ForeColor="White" />
+            </div><br />
+            <asp:Button ID="Cancel" runat="server" Text="Cancel" BackColor="#3DED97" ForeColor="White" Font-Size="Large" Height="30px" Width="68px" OnClick="Cancel_Click"/>
+            <asp:Button class="Payy" ID="conf" runat="server" Text="CONFIRM" BackColor="#3DED97" ForeColor="White"  OnClick="Pay_Click" />
             <br />
             <br />
 

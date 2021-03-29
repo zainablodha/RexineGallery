@@ -24,7 +24,6 @@ namespace WebApplication1
         String Quantity = "";
         SqlConnection con;
         SqlConnection conn;
-        SqlConnection connn;
         String ImageUrl;
         int BbP;
         int quantityy;
@@ -34,6 +33,7 @@ namespace WebApplication1
         String BId;
         String Amtt;
         String Status;
+        String Payy;
 
         protected void createRequest(object sender, EventArgs e)
         {
@@ -147,14 +147,16 @@ namespace WebApplication1
                 Amtt = Bbpricee.Text;
                 Convert.ToInt32(CId);
                 Convert.ToInt32(BId);
-                String cmmd = "insert into Orderr values(@CustID, @BbID, @Amt, @Stat)";
+                String cmmd = "insert into Orderr values(@CustID, @BbID, @Amt, @Stat,@pay)";
                 Status = "Not Placed";
+                Payy = "Null";
                 ccon.Open();
                 SqlCommand comm = new SqlCommand(cmmd, ccon);
                 comm.Parameters.AddWithValue("@CustID", CId);
                 comm.Parameters.AddWithValue("@BbID", BId);
                 comm.Parameters.AddWithValue("@Amt", Amtt);
                 comm.Parameters.AddWithValue("@Stat", Status);
+                comm.Parameters.AddWithValue("@pay", Payy);
                 comm.ExecuteNonQuery();
                 ccon.Close();
                 Response.Redirect("order.aspx");

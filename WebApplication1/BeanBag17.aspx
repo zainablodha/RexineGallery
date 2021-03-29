@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col2">
-                <img class="bb1" src="../Images/BeanBags/beanbag2%207.jpg" />
+                <asp:Image id="img" runat="server" ImageUrl="~/Images/BeanBags/beanbag2%207.jpg"></asp:Image>
             </div>
             <div class="col2">
                 <h1>
@@ -60,7 +60,7 @@
 
                 </div>
                 <br />
-                <asp:Button ID="Button1" class="order" runat="server" ForeColor="white" Text="ORDER" />
+                <asp:Button ID="Button1" class="order" runat="server" ForeColor="white" Text="ORDER" OnClick="Button1_Click" />
             </div>
         </div>
 

@@ -26,7 +26,14 @@ namespace WebApplication1.BeanBag_2
         SqlConnection conn;
         int BbP;
         int quantityy;
-
+        SqlConnection ccon;
+        string Email;
+        String CId;
+        String BId;
+        String Amtt;
+        String Status;
+        String Payy;
+        String ImageUrl;
         protected void createRequest(object sender, EventArgs e)
         {
             conn = new SqlConnection(ConfigurationManager.ConnectionStrings["db"].ConnectionString);
@@ -84,7 +91,10 @@ namespace WebApplication1.BeanBag_2
             Bbpricee.Text = reader["BbPrice"].ToString();
             Bbrexx.Text = reader["BbRex"].ToString();
             Bbtypee.Text = reader["BbType"].ToString();
-            reader.Close();
+            BId = reader["BbID"].ToString();
+            Session["price"] = Bbpricee.Text;
+            Session["Img"] = img.ImageUrl;
+            Session["Bid"] = BId;
             con.Close();
 
         }
@@ -107,6 +117,47 @@ namespace WebApplication1.BeanBag_2
         protected void ImageButton4_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("BeanBag24.aspx");
+        }
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+
+
+            if (Session["CustEmail"] == null)
+            {
+
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                Email = Session["CustEmail"].ToString();
+                ccon = new SqlConnection(ConfigurationManager.ConnectionStrings["db"].ConnectionString);
+                ccon.Open();
+                String cmdd = "select CustId from Customer where CustEmail= '" + Email + "'";
+                SqlCommand com = new SqlCommand(cmdd, ccon);
+                SqlDataReader reader = com.ExecuteReader();
+                reader.Read();
+                CId = reader["CustId"].ToString();
+                Session["Cid"] = CId;
+                reader.Close();
+                ccon.Close();
+                Amtt = Bbpricee.Text;
+                Convert.ToInt32(CId);
+                Convert.ToInt32(BId);
+                String cmmd = "insert into Orderr values(@CustID, @BbID, @Amt, @Stat, @pay)";
+                Payy = "Null";
+                Status = "Not Placed";
+                ccon.Open();
+                SqlCommand comm = new SqlCommand(cmmd, ccon);
+                comm.Parameters.AddWithValue("@CustID", CId);
+                comm.Parameters.AddWithValue("@BbID", BId);
+                comm.Parameters.AddWithValue("@Amt", Amtt);
+                comm.Parameters.AddWithValue("@Stat", Status);
+                comm.Parameters.AddWithValue("@pay", Payy);
+                comm.ExecuteNonQuery();
+                ccon.Close();
+                Response.Redirect("order.aspx");
+
+            }
         }
     }
 }

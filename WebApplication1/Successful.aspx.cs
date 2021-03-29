@@ -29,7 +29,7 @@ namespace WebApplication1
             comm.Parameters.AddWithValue("@Bid", bid);
             SqlDataReader reader = comm.ExecuteReader();
             reader.Read();
-            orid = reader["BbID"].ToString();
+            orid = reader["OrderID"].ToString();
             Oid.Text = "Your Order Id is : " + orid;
         }
     }
