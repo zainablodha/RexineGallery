@@ -24,8 +24,8 @@ namespace WebApplication1.BeanBag_2
         String Quantity = "";
         SqlConnection con;
         SqlConnection conn;
-        int BbP;
-        int quantityy;
+        String BbP;
+        String quantityy;
         SqlConnection ccon;
         string Email;
         String CId;
@@ -78,7 +78,7 @@ namespace WebApplication1.BeanBag_2
                 SIZE.SelectedIndex = 0;
 
             }
-
+            
             Quantity = q.Text.ToString();
             BbBeans = BEANS.SelectedItem.Value.ToString();
             BbSize = SIZE.SelectedValue;
@@ -162,6 +162,18 @@ namespace WebApplication1.BeanBag_2
                 Response.Redirect("order.aspx");
 
             }
+        }
+        protected void q_TextChanged(object sender, EventArgs e)
+        {
+            if (q.Text != null)
+            {
+                BbP = Bbpricee.Text.Replace("/-", "");
+                quantityy = q.Text.ToString();
+                String tot = Convert.ToString(Convert.ToInt32(BbP) * Convert.ToInt32(quantityy));
+                Bbpricee.Text = tot + "/-";
+                Session["price"] = Bbpricee.Text;
+            }
+            Session["Qty"] = q.Text;
         }
     }
 }

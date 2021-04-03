@@ -14,7 +14,7 @@ namespace WebApplication1
         {
             if (Session["CustEmail"] == null)
             {
-              
+                instatus.InnerText = "Login";
                 instatus.HRef = "Login.aspx";
             }
             else
@@ -24,10 +24,15 @@ namespace WebApplication1
                 
             }
 
-        }
-        protected void instatus_click(object sender, EventArgs e)
-        {
 
         }
+        /*protected void outstatus_click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Session.Remove("TextEmail");
+            Session.Remove("TextPass");
+        }*/
+
+
     }
 }

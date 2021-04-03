@@ -3,11 +3,16 @@
     <div class="success" align="center"><br />
        <h6> <asp:Label id="successs" runat="server" Text="Your Order has been Placed Successfully!" ></asp:Label></h6>
         <h3><asp:Label id="Oid" runat="server" ></asp:Label></h3>
+        <h2>Thank You!</h2>
     </div>
     <style>
         body{
             background: radial-gradient(circle, #EEFBFB, #add8e6);
             background-size: cover;
+        }
+        h2{
+              font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 20px;
         }
         .success{
             margin-top:200px;
@@ -17,10 +22,12 @@
             background-color:aliceblue;
         }
         .success h3 {
+            
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             font-size: 30px;
         }
         .success h6{
+            margin-top:70px;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             font-size: 20px;
         }

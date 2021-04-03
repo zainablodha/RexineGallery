@@ -31,6 +31,8 @@ namespace WebApplication1
             reader.Read();
             orid = reader["OrderID"].ToString();
             Oid.Text = "Your Order Id is : " + orid;
+            reader.Close();
+
         }
     }
 }

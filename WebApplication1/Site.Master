@@ -27,7 +27,8 @@
         </div>
         <div id="auth_view" class="loginstatus">
             <a href="Admin/login.aspx" runat="server">Admin |</a>
-            <a id= "instatus" runat="server" onclick="instatus_click">Login</a>
+            <a id= "instatus" runat="server" ></a>
+            <a id= "outstatus" runat="server" onclick="outstatus_click"></a>
 
         </div>
 

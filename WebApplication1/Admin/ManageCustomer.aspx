@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="gv" align="center">
+         <asp:Label class="or" runat="server" Text="Customer Details"></asp:Label><br />
         <asp:GridView ID="ManageCustomers" runat="server" AutoGenerateColumns="False" DataKeyNames="CustId" DataSourceID="SqlDataSource1" Width="585px" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" CellSpacing="1" GridLines="None" OnSelectedIndexChanged="ManageCustomers_SelectedIndexChanged">
             <Columns>
                 <asp:BoundField DataField="CustId" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="CustId" />
@@ -40,6 +41,10 @@
         }
         .gv{
             margin-top:100px;
+        }
+        .or{
+             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size:30px; 
         }
     </style>
 </asp:Content>

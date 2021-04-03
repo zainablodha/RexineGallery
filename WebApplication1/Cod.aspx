@@ -21,7 +21,7 @@
             <br />
             </div><br />
             <asp:Button ID="Cancel" runat="server" Text="Cancel" BackColor="#3DED97" ForeColor="White" Font-Size="Large" Height="30px" Width="68px" OnClick="Cancel_Click"/>
-            <asp:Button class="Payy" ID="conf" runat="server" Text="CONFIRM" BackColor="#3DED97" ForeColor="White"  OnClick="Pay_Click" />
+            <asp:Button class="Payy" ID="conf" runat="server" Text="CONFIRM" BackColor="#3DED97" ForeColor="White" Height="30px" Width="68px" OnClick="Pay_Click" />
             <br />
             <br />
 

@@ -25,8 +25,8 @@ namespace WebApplication1
         SqlConnection con;
         SqlConnection conn;
         String ImageUrl;
-        int BbP;
-        int quantityy;
+        String BbP;
+        String quantityy;
         SqlConnection ccon;
         string Email;
         String CId;
@@ -54,7 +54,16 @@ namespace WebApplication1
             
             reader.Close();
             conn.Close();
-            
+            if (q.Text != null)
+            {
+                BbP = Bbpricee.Text.Replace("/-", "");
+                quantityy = q.Text.ToString();
+                String tot = Convert.ToString(Convert.ToInt32(BbP) * Convert.ToInt32(quantityy));
+                Bbpricee.Text = tot + "/-";
+                Session["price"] = Bbpricee.Text;
+            }
+            Session["Qty"] = q.Text;
+            Session["price"] = Bbpricee.Text;
         }
 
         
@@ -78,8 +87,8 @@ namespace WebApplication1
                 SIZE.SelectedIndex = 0;
 
             }
+
             
-            Quantity = q.Text.ToString();
             BbBeans= BEANS.SelectedItem.Value.ToString();
             BbSize = SIZE.SelectedValue;
             //string str = "select * from BeanBag where  BbSize = '" + BbSize + "'" ;
@@ -94,7 +103,7 @@ namespace WebApplication1
             Bbpricee.Text = reader["BbPrice"].ToString();
             Bbrexx.Text = reader["BbRex"].ToString();
             Bbtypee.Text = reader["BbType"].ToString();
-            Session["price"] = Bbpricee.Text;
+            
             Session["Img"] = img.ImageUrl;
             Session["Bid"] = BId;
             
@@ -133,6 +142,7 @@ namespace WebApplication1
             }
             else
             {
+                
                 Email = Session["CustEmail"].ToString();
                 ccon = new SqlConnection(ConfigurationManager.ConnectionStrings["db"].ConnectionString);
                 ccon.Open();
@@ -158,10 +168,14 @@ namespace WebApplication1
                 comm.Parameters.AddWithValue("@Stat", Status);
                 comm.Parameters.AddWithValue("@pay", Payy);
                 comm.ExecuteNonQuery();
+                Session["price"] = Bbpricee.Text;
                 ccon.Close();
+                
                 Response.Redirect("order.aspx");
 
             }
         }
+
+        
     }
 }

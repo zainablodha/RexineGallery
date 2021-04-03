@@ -123,7 +123,7 @@ namespace WebApplication1.BeanBag_2
         protected global::System.Web.UI.WebControls.ImageButton ImageButton4;
 
         /// <summary>
-        /// q control.
+        ///  q  control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.

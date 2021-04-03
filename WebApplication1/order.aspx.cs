@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,19 +12,20 @@ namespace WebApplication1
 {
     public partial class order : System.Web.UI.Page
     {
-        string tott;
+        string total;
         SqlConnection con;
         String cid;
         String bid;
         String OStat;
         String Payy;
+        String Img; 
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
             
-            tott = Session["price"].ToString();
-            tot.Text = " Your Total is ₹ " + tott;
+            total = Session["price"].ToString();
+            tot.Text = " Your Total is ₹ " + total;
             cid = Session["Cid"].ToString();
             bid = Session["Bid"].ToString();
            
@@ -36,10 +38,10 @@ namespace WebApplication1
 
         protected void Pay_Click(object sender, EventArgs e)
         {
-            Payy = "Card Payment (Done)";
             con = new SqlConnection(ConfigurationManager.ConnectionStrings["db"].ConnectionString);
             con.Open();
             String Stat = "Placed";
+            Payy = "Card Payment (Done)";
             Convert.ToInt32(cid);
             Convert.ToInt32(bid);
             String cmd = "Update Orderr set OrderStatus=@OStat where CustId=@cid and BbID=@bid";
@@ -55,6 +57,21 @@ namespace WebApplication1
             comd.Parameters.AddWithValue("@Pay", Payy);
             comd.Parameters.AddWithValue("@Stat", Stat);
             comd.ExecuteNonQuery();
+            String cmmd = "Select * from Orderr where CustId=@CID and BbID=@Bid";
+            SqlCommand comdd = new SqlCommand(cmmd, con);
+            comdd.Parameters.AddWithValue("@CID", cid);
+            comdd.Parameters.AddWithValue("@Bid", bid);
+            SqlDataReader reader = comdd.ExecuteReader();
+            reader.Read();
+            String orid = reader["OrderID"].ToString();
+            reader.Close();
+            String qtyy = Session["Qty"].ToString();
+            String cd = "insert into order_details values(@Oid,@bqty,@bamt)";
+            SqlCommand cdd = new SqlCommand(cd, con);
+            cdd.Parameters.AddWithValue("@Oid", orid);
+            cdd.Parameters.AddWithValue("@bqty", qtyy);
+            cdd.Parameters.AddWithValue("@bamt", total);
+            cdd.ExecuteNonQuery();
             con.Close();
             Response.Redirect("Successful.aspx");
         }

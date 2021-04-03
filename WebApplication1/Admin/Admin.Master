@@ -15,8 +15,11 @@
                 <nav>
                     <p>Rexine Gallery</p>
                     <ul id="nav">
+                        <li><a class="rexblack" href="ManageAdmins.aspx">ADMIN</a></li>
                         <li><a class="rexblack" href="ManageCustomer.aspx">CUSTOMERS</a></li>
-                        <li><a class="rexblack" href="#">ORDERS</a></li></ul>
+                        <li><a class="rexblack" href="ManageOrders.aspx">ORDERS</a></li>
+
+                    </ul>
                 </nav>
             </div>
         </div>

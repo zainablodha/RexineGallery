@@ -107,7 +107,9 @@
   <ItemGroup>
     <Content Include="Admin\AStyle.css" />
     <Content Include="Admin\login.aspx" />
+    <Content Include="Admin\ManageAdmins.aspx" />
     <Content Include="Admin\ManageCustomer.aspx" />
+    <Content Include="Admin\ManageOrders.aspx" />
     <Content Include="Avio.aspx" />
     <Content Include="BeanBag1.aspx" />
     <Content Include="BeanBag17.aspx" />
@@ -318,12 +320,26 @@
     <Compile Include="Admin\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ManageAdmins.aspx.cs">
+      <DependentUpon>ManageAdmins.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageAdmins.aspx.designer.cs">
+      <DependentUpon>ManageAdmins.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ManageCustomer.aspx.cs">
       <DependentUpon>ManageCustomer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\ManageCustomer.aspx.designer.cs">
       <DependentUpon>ManageCustomer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageOrders.aspx.cs">
+      <DependentUpon>ManageOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageOrders.aspx.designer.cs">
+      <DependentUpon>ManageOrders.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
