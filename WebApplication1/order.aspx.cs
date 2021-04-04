@@ -22,10 +22,19 @@ namespace WebApplication1
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            String t1 = Session["pricee"].ToString();
+            String t2 = Session["price"].ToString();
+            if (t1 == t2)
+            {
+                total = Session["price"].ToString();
+                tot.Text = " Your Total is ₹ " + total;
 
-            
-            total = Session["price"].ToString();
-            tot.Text = " Your Total is ₹ " + total;
+            }
+            else
+            {
+                total = Session["pricee"].ToString();
+                tot.Text = " Your Total is ₹ " + total;
+            }
             cid = Session["Cid"].ToString();
             bid = Session["Bid"].ToString();
            

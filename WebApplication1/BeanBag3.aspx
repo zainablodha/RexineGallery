@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BeanBag2.aspx.cs" Inherits="WebApplication1.BeanBag_2.BeanBag2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BeanBag3.aspx.cs" Inherits="WebApplication1.BeanBag3" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container">
+     <div class="container">
         <div class="row">
             <div class="col2">
-                <asp:Image id="img" runat="server" ImageUrl="~/Images/BeanBags/beanbag5.jpg"></asp:Image>
+                <asp:Image id="img" runat="server" ImageUrl="~/Images/BeanBags/beanbag6.jpg"></asp:Image>
             </div>
             <div class="col2">
                 <h1>
@@ -19,7 +19,8 @@
                 
                     BeanBag Rexine: <asp:Label ID="Bbrexx" runat="server"></asp:Label>
                 </div>
-                 <div class="beans">
+                
+                <div class="beans">
                     BEANS:<br />
                     <asp:RadioButtonList ID="BEANS" runat="server" RepeatLayout="Flow" onchange="createRequest" AutoPostBack="True">
                         <asp:ListItem Value="With Beans" Text="With Beans" Checked="True"></asp:ListItem>
@@ -37,25 +38,12 @@
                 </div>
                 <div class="options">
                     <h6>OPTIONS</h6>
-                    <br />
-                    <asp:ImageButton ID="ImageButton5" class="imgbtn" runat="server"
-                        ImageUrl="~/Images/BeanBags/beanbag5.jpg" />
-                    &nbsp;
-                            <asp:ImageButton ID="ImageButton1" class="imgbtn" runat="server"
-                                ImageUrl="~/Images/BeanBags/beanbag5 1.jpg" OnClick="ImageButton1_Click" />
-                    &nbsp;
-                            <asp:ImageButton ID="ImageButton2" class="imgbtn" runat="server"
-                                ImageUrl="~/Images/BeanBags/beanbag5 2.jpg" OnClick="ImageButton2_Click" />
-                    &nbsp;
-                            <asp:ImageButton ID="ImageButton3" class="imgbtn" runat="server"
-                                ImageUrl="~/Images/BeanBags/beanbag5 3.jpg" OnClick="ImageButton3_Click" />
-                    &nbsp;
-                            <asp:ImageButton ID="ImageButton4" class="imgbtn" runat="server"
-                                ImageUrl="~/Images/BeanBags/beanbag5 4.jpg" OnClick="ImageButton4_Click" />
-                </div>
+                    
+                    <asp:Label class="op" runat="server" Text="No Options Available"></asp:Label>
+                </div><br />
                 <div class="quantity">
                     <h6>QUANTITY</h6>
-                    <asp:TextBox ID="q" class="" runat="server" AutoPostBack="True"  TextMode="number" min="1" max="10" Text="1" OnTextChanged="createRequest"></asp:TextBox>
+                    <asp:TextBox ID="q" class="" runat="server" AutoPostBack="True" TextMode="number" min="1" max="10" Text="1" OnTextChanged="createRequest"></asp:TextBox>
 
                 </div>
                 <br />
@@ -210,6 +198,10 @@
         .q1 {
             height: 30px;
             width: 230px;
+        }
+        .op{
+            font-family: 'Arvo', serif;
+            font-size: 15px;
         }
     </style>
 </asp:Content>

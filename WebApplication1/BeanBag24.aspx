@@ -55,7 +55,7 @@
                 </div>
                 <div class="quantity">
                     <h6>QUANTITY</h6>
-                    <asp:TextBox ID=" q " class="" runat="server" AutoPostBack="True" TextMode="number" min="1" max="10" Text="1" OnTextChanged="q_TextChanged" runat="server"></asp:TextBox>
+                    <asp:TextBox ID=" q " class="" runat="server" AutoPostBack="True" TextMode="number" min="1" max="10" Text="1" OnTextChanged="createRequest" runat="server"></asp:TextBox>
                 </div>
                 <br />
                 <asp:Button ID="Button1" class="order" runat="server" ForeColor="white" Text="ORDER" OnClick="Button1_Click" />

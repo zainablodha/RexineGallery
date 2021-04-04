@@ -41,7 +41,7 @@ namespace WebApplication1
             conn.Open();
             BbBeans = BEANS.SelectedItem.Value.ToString();
             BbSize = SIZE.SelectedValue;
-            SqlCommand comm = new SqlCommand("select * from Beanbag where BbSize=@BbS and BbBeans=@BbB and BbName=BbName", conn);
+            SqlCommand comm = new SqlCommand("select * from Beanbag where BbSize=@BbS and BbBeans=@BbB and BbName=@BbName", conn);
             comm.Parameters.AddWithValue("@BbS", BbSize);
             comm.Parameters.AddWithValue("@BbB", BbBeans);
             comm.Parameters.AddWithValue("@BbName", BbName);
@@ -51,7 +51,7 @@ namespace WebApplication1
             Bbpricee.Text = reader["BbPrice"].ToString();
             Bbrexx.Text = reader["BbRex"].ToString();
             Bbtypee.Text = reader["BbType"].ToString();
-            
+            //Session["price"] = Bbpricee.Text;
             reader.Close();
             conn.Close();
             if (q.Text != null)
@@ -60,10 +60,11 @@ namespace WebApplication1
                 quantityy = q.Text.ToString();
                 String tot = Convert.ToString(Convert.ToInt32(BbP) * Convert.ToInt32(quantityy));
                 Bbpricee.Text = tot + "/-";
-                Session["price"] = Bbpricee.Text;
+                Session["pricee"] = Bbpricee.Text;
             }
+            
             Session["Qty"] = q.Text;
-            Session["price"] = Bbpricee.Text;
+            
         }
 
         
@@ -103,7 +104,7 @@ namespace WebApplication1
             Bbpricee.Text = reader["BbPrice"].ToString();
             Bbrexx.Text = reader["BbRex"].ToString();
             Bbtypee.Text = reader["BbType"].ToString();
-            
+            Session["price"] = Bbpricee.Text;
             Session["Img"] = img.ImageUrl;
             Session["Bid"] = BId;
             
@@ -134,15 +135,14 @@ namespace WebApplication1
             
         protected void Button1_Click(object sender, EventArgs e)
         {
-           
-            
             if (Session["CustEmail"] == null) { 
                
             Response.Redirect("Login.aspx");
             }
             else
             {
-                
+               
+
                 Email = Session["CustEmail"].ToString();
                 ccon = new SqlConnection(ConfigurationManager.ConnectionStrings["db"].ConnectionString);
                 ccon.Open();

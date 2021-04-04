@@ -7,16 +7,16 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace WebApplication1.BeanBag_2
+namespace WebApplication1
 {
-    public partial class BeanBag2 : System.Web.UI.Page
+    public partial class BeanBag4 : System.Web.UI.Page
     {
         protected bool isNotEmpty(String value)
         {
             return value != null && value != "";
         }
 
-        String BbName = "Zeta Bean";
+        String BbName = "Delta Bean";
 
         String BbPrice;
         String BbBeans = "";
@@ -24,6 +24,7 @@ namespace WebApplication1.BeanBag_2
         String Quantity = "";
         SqlConnection con;
         SqlConnection conn;
+        String ImageUrl;
         String BbP;
         String quantityy;
         SqlConnection ccon;
@@ -33,7 +34,6 @@ namespace WebApplication1.BeanBag_2
         String Amtt;
         String Status;
         String Payy;
-        String ImageUrl;
 
         protected void createRequest(object sender, EventArgs e)
         {
@@ -51,9 +51,9 @@ namespace WebApplication1.BeanBag_2
             Bbpricee.Text = reader["BbPrice"].ToString();
             Bbrexx.Text = reader["BbRex"].ToString();
             Bbtypee.Text = reader["BbType"].ToString();
+            //Session["price"] = Bbpricee.Text;
             reader.Close();
             conn.Close();
-
             if (q.Text != null)
             {
                 BbP = Bbpricee.Text.Replace("/-", "");
@@ -64,6 +64,7 @@ namespace WebApplication1.BeanBag_2
             }
             
             Session["Qty"] = q.Text;
+
         }
 
 
@@ -88,7 +89,7 @@ namespace WebApplication1.BeanBag_2
 
             }
 
-            Quantity = q.Text.ToString();
+
             BbBeans = BEANS.SelectedItem.Value.ToString();
             BbSize = SIZE.SelectedValue;
             //string str = "select * from BeanBag where  BbSize = '" + BbSize + "'" ;
@@ -97,44 +98,23 @@ namespace WebApplication1.BeanBag_2
             com.Parameters.AddWithValue("@BbB", BbBeans);
             com.Parameters.AddWithValue("@BbName", BbName);
             SqlDataReader reader = com.ExecuteReader();
-
             reader.Read();
             Bbnamee.Text = BbName;
+            BId = reader["BbID"].ToString();
             Bbpricee.Text = reader["BbPrice"].ToString();
             Bbrexx.Text = reader["BbRex"].ToString();
             Bbtypee.Text = reader["BbType"].ToString();
-            BId = reader["BbID"].ToString();
             Session["price"] = Bbpricee.Text;
             Session["Img"] = img.ImageUrl;
             Session["Bid"] = BId;
+
             reader.Close();
             con.Close();
 
         }
 
-        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("BeanBag21.aspx");
-        }
-
-        protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("BeanBag22.aspx");
-        }
-
-        protected void ImageButton3_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("BeanBag23.aspx");
-        }
-
-        protected void ImageButton4_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("BeanBag24.aspx");
-        }
         protected void Button1_Click(object sender, EventArgs e)
         {
-
-
             if (Session["CustEmail"] == null)
             {
 
@@ -142,6 +122,8 @@ namespace WebApplication1.BeanBag_2
             }
             else
             {
+
+
                 Email = Session["CustEmail"].ToString();
                 ccon = new SqlConnection(ConfigurationManager.ConnectionStrings["db"].ConnectionString);
                 ccon.Open();
@@ -156,7 +138,7 @@ namespace WebApplication1.BeanBag_2
                 Amtt = Bbpricee.Text;
                 Convert.ToInt32(CId);
                 Convert.ToInt32(BId);
-                String cmmd = "insert into Orderr values(@CustID, @BbID, @Amt, @Stat, @pay)";
+                String cmmd = "insert into Orderr values(@CustID, @BbID, @Amt, @Stat,@pay)";
                 Status = "Not Placed";
                 Payy = "Null";
                 ccon.Open();
@@ -167,11 +149,12 @@ namespace WebApplication1.BeanBag_2
                 comm.Parameters.AddWithValue("@Stat", Status);
                 comm.Parameters.AddWithValue("@pay", Payy);
                 comm.ExecuteNonQuery();
+                Session["price"] = Bbpricee.Text;
                 ccon.Close();
+
                 Response.Redirect("order.aspx");
 
             }
         }
-       
     }
 }

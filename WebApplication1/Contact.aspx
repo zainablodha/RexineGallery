@@ -4,9 +4,12 @@
     <div class="contact" align="center"><br />
          <h1 class="contct">Contact Us</h1><br />
        <p>Email: <a style="text-decoration:none;" href="mailto:abc@gmail.com">"abc@gmail.com"</a><br />
-           Call: <a href="tel:+91987-654-3210">"+91987-654-3210"</a>
+           Call: <a href="tel:+91987-654-3210">"+91987-654-3210"</a><br />
+           
        </p>
-
+        <div class="addr">
+              Address: MG Road, Goregaon West, Mumbai-400090, Maharashtra, India.
+        </div>
     </div>
     <style>
         
@@ -33,7 +36,7 @@
           
          .contact{
            
-           height:250px;
+           height:300px;
            width: 700px;
            background-color:rgba(18,35,46,0.9);
            margin-top:100px;
@@ -42,6 +45,11 @@
            
          
         }
+         .addr{
+            font-family:'Black Jack';
+            color:white;
+            font-size:30px;
+         }
 
         
         

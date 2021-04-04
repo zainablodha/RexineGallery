@@ -55,6 +55,17 @@ namespace WebApplication1.BeanBag_2
 
             reader.Close();
             conn.Close();
+
+            if (q.Text != null)
+            {
+                BbP = Bbpricee.Text.Replace("/-", "");
+                quantityy = q.Text.ToString();
+                String tot = Convert.ToString(Convert.ToInt32(BbP) * Convert.ToInt32(quantityy));
+                Bbpricee.Text = tot + "/-";
+                Session["pricee"] = Bbpricee.Text;
+            }
+           
+            Session["Qty"] = q.Text;
         }
 
 
@@ -163,17 +174,6 @@ namespace WebApplication1.BeanBag_2
 
             }
         }
-        protected void q_TextChanged(object sender, EventArgs e)
-        {
-            if (q.Text != null)
-            {
-                BbP = Bbpricee.Text.Replace("/-", "");
-                quantityy = q.Text.ToString();
-                String tot = Convert.ToString(Convert.ToInt32(BbP) * Convert.ToInt32(quantityy));
-                Bbpricee.Text = tot + "/-";
-                Session["price"] = Bbpricee.Text;
-            }
-            Session["Qty"] = q.Text;
-        }
+       
     }
 }

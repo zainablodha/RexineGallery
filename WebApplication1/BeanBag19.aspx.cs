@@ -41,7 +41,7 @@ namespace WebApplication1.BeanBag_1
             conn.Open();
             BbBeans = BEANS.SelectedItem.Value.ToString();
             BbSize = SIZE.SelectedValue;
-            SqlCommand comm = new SqlCommand("select * from Beanbag where BbSize=@BbS and BbBeans=@BbB and BbName=BbName", conn);
+            SqlCommand comm = new SqlCommand("select * from Beanbag where BbSize=@BbS and BbBeans=@BbB and BbName=@BbName", conn);
             comm.Parameters.AddWithValue("@BbS", BbSize);
             comm.Parameters.AddWithValue("@BbB", BbBeans);
             comm.Parameters.AddWithValue("@BbName", BbName);
@@ -53,6 +53,16 @@ namespace WebApplication1.BeanBag_1
             Bbtypee.Text = reader["BbType"].ToString();
             reader.Close();
             conn.Close();
+            if (q.Text != null)
+            {
+                BbP = Bbpricee.Text.Replace("/-", "");
+                quantityy = q.Text.ToString();
+                String tot = Convert.ToString(Convert.ToInt32(BbP) * Convert.ToInt32(quantityy));
+                Bbpricee.Text = tot + "/-";
+                Session["pricee"] = Bbpricee.Text;
+            }
+           
+            Session["Qty"] = q.Text;
         }
 
 
@@ -158,17 +168,6 @@ namespace WebApplication1.BeanBag_1
 
             }
         }
-        protected void q_TextChanged(object sender, EventArgs e)
-        {
-            if (q.Text != null)
-            {
-                BbP = Bbpricee.Text.Replace("/-", "");
-                quantityy = q.Text.ToString();
-                String tot = Convert.ToString(Convert.ToInt32(BbP) * Convert.ToInt32(quantityy));
-                Bbpricee.Text = tot + "/-";
-                Session["price"] = Bbpricee.Text;
-            }
-            Session["Qty"] = q.Text;
-        }
+        
     }
 }

@@ -120,6 +120,8 @@
     <Content Include="BeanBag22.aspx" />
     <Content Include="BeanBag23.aspx" />
     <Content Include="BeanBag24.aspx" />
+    <Content Include="BeanBag3.aspx" />
+    <Content Include="BeanBag4.aspx" />
     <Content Include="BeanBagH.aspx" />
     <Content Include="Cod.aspx" />
     <Content Include="COD.png" />
@@ -412,6 +414,20 @@
     </Compile>
     <Compile Include="BeanBag24.aspx.designer.cs">
       <DependentUpon>BeanBag24.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BeanBag3.aspx.cs">
+      <DependentUpon>BeanBag3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BeanBag3.aspx.designer.cs">
+      <DependentUpon>BeanBag3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BeanBag4.aspx.cs">
+      <DependentUpon>BeanBag4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BeanBag4.aspx.designer.cs">
+      <DependentUpon>BeanBag4.aspx</DependentUpon>
     </Compile>
     <Compile Include="BeanBagH.aspx.cs">
       <DependentUpon>BeanBagH.aspx</DependentUpon>
